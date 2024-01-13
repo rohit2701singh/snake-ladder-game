@@ -1,9 +1,10 @@
 import random
 from time import sleep  # sleep function will be used to delay the program
 from art import logo
-print("welcome to py snake-ladder game.")
 
+print("welcome to py snake-ladder game.")
 print(logo)
+
 dice = [1, 2, 3, 4, 5, 6]
 ladder_numbers = [2, 9, 24, 31, 57, 63]
 ladder_number_change = [40, 12, 43, 68, 65, 81]
@@ -29,7 +30,7 @@ def snake(sum_of_player):
         changing_sum = snake_number_change[snake_number.index(sum_of_player)]
         if sum_of_player == user_sum:
             print(f"🚨🐍 You found a snake at position {sum_of_player}.🐍🚨 your position reduce to {changing_sum}.\n")
-        else:
+        elif sum_of_player == computer_sum:
             print(f"🚨🐍 computer found a snake at position {sum_of_player}.🐍🚨 computer's position reduce to "
                   f"{changing_sum}.\n")
         return changing_sum
@@ -87,7 +88,7 @@ while game_on:
         user_sum = ladder(user_sum)
         if user_sum == computer_sum and computer_sum != 1:
             computer_sum = 0
-            print("🚨 you are on computer's position. computer position becomes 0. 🚨\n")
+            print("🚨 you are at computer's position. Killed Computer, computer position becomes 0. 🚨\n")
 
     if computer_sum == 0:
         computer_sum = found_six(computer_dice)
